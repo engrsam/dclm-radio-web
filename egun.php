@@ -10,7 +10,7 @@ header("Pragma: no-cache");
 <!DOCTYPE html>
 <html>
   <head>
-    <title>French :: DCLM Online Radio</title>
+    <title>Egun :: DCLM Online Radio</title>
 		<?php include 'assets/libs/meta.php'; ?>
   </head>
 
@@ -26,7 +26,7 @@ header("Pragma: no-cache");
 
               </div>
               <div class="large-12 large-centered medium-6 small-6 cell">
-                <span class="now-playing">DCLM Radio - French</span>
+                <span class="now-playing">DCLM Radio - Egun</span>
               </div>
               <div class="large-3 medium-3 small-3 cell">
                 <!--<img src="./img/show-playlist.svg" class="show-playlist"/>-->
@@ -113,7 +113,7 @@ header("Pragma: no-cache");
         {
           "name": "On Air!",
           "artist": "DCLM Radio",
-          "url": "https://airtime.dclm.org/radio/8050/french",
+          "url": "https://airtime.dclm.org/radio/8120/egun",
           "cover_art_url": "assets/img/album-art/art.png",
           "genre": "Gospel",
       	  "live": true
@@ -129,7 +129,7 @@ header("Pragma: no-cache");
     window.addEventListener('load',
     function getAPI(){
     // code to execute
-    fetch('https://stat1.dclm.org/api/nowplaying/3')
+    fetch('https://stat1.dclm.org/api/nowplaying/7')
         .then((res) => { return res.json() })
         .then((data) => {
           //console.log(data.listeners.current);

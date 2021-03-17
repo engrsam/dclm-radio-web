@@ -123,29 +123,22 @@ header("Pragma: no-cache");
       //"autoplay": true
     });
   </script>
+
+  <!-- Listeners count code -->
   <script>
     window.addEventListener('load',
     function getAPI(){
     // code to execute
-    
-    fetch('https://stat1.dclm.org/api/nowplaying')
+    fetch('https://stat1.dclm.org/api/nowplaying/5')
         .then((res) => { return res.json() })
         .then((data) => {
-            let result = `<h2> DCLM Radio Info</h2>`;
-            data.forEach((nowplaying) => {
-              const { station: { id, name, listen_url }, listeners: { total }, now_playing: { song: { artist, title, art } } } = nowplaying;
-              result += `${name}`;
-
-				    if (id == 5){ 
-              //document.getElementById('name').innerHTML = result;
-              document.getElementById('artist').innerHTML = `${artist}`;
-              document.getElementById('title').innerHTML = `${title}`;
-              document.getElementById('listeners').innerHTML = `${total}`;
-              document.getElementById('art').src = `${art}`;
-              }
-              });
-            })
-  	    setTimeout(getAPI, 60000);
+          //console.log(data.listeners.current);
+          document.getElementById('artist').innerHTML = data.now_playing.song.artist;
+          document.getElementById('title').innerHTML = data.now_playing.song.title;
+          document.getElementById('listeners').innerHTML = data.listeners.current;
+          document.getElementById('art').src = data.now_playing.song.art;
+        })
+  	  setTimeout(getAPI, 60000);
     })
   </script>
 

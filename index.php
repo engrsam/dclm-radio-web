@@ -106,6 +106,7 @@ header("Pragma: no-cache");
     </div>
 
   </body>
+  <!-- Media player code -->
   <script type="text/javascript">
     Amplitude.init({
       "songs": [
@@ -122,33 +123,24 @@ header("Pragma: no-cache");
       //"autoplay": true
     });
   </script>
+
+
+  <!-- Listeners count code -->
   <script>
     window.addEventListener('load',
     function getAPI(){
     // code to execute
-    fetch('https://stat1.dclm.org/api/nowplaying')
-        .then((res) => { return res.json() })
-        .then((data) => {
-            let result = `<h2> DCLM Radio Info</h2>`;
-            data.forEach((nowplaying) => {
-            	//let id = 1;
-              //const { id, name, email, address: { city, street } } = nowplaying
-              const { station: { id, name, listen_url }, listeners: { total }, now_playing: { song: { artist, title, art } } } = nowplaying; 
-             
-              result += `${name}`;
-
-				    if (id == 1){
-              //document.getElementById('name').innerHTML = result;
-              document.getElementById('artist').innerHTML = `${artist}`;
-              document.getElementById('title').innerHTML = `${title}`;
-              document.getElementById('listeners').innerHTML = `${total}`;
-              document.getElementById('art').src = `${art}`;
-          }
-              //document.getElementById('name').innerHTML = $name;
-              //let name = $name;
-                    });
-                })
-  	      setTimeout(getAPI, 60000);
+    fetch('https://stat1.dclm.org/api/nowplaying/1')
+      .then((res) => { return res.json() })
+      .then((data) => {
+        //console.log(data.listeners.current);
+        document.getElementById('artist').innerHTML = data.now_playing.song.artist;
+        document.getElementById('title').innerHTML = data.now_playing.song.title;
+        document.getElementById('listeners').innerHTML = data.listeners.current;
+        document.getElementById('art').src = data.now_playing.song.art;
+      })
+  	setTimeout(getAPI, 60000);
     })
   </script>
+
 </html>

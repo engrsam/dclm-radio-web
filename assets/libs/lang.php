@@ -19,8 +19,9 @@
               </div>-->
 
               <a href="/" class="hollow button">English</a>
-              <a href="yoruba" class="hollow button">Yoruba</a>
               <a href="french" class="hollow button">French</a>
+              <a href="portuguese" class="hollow button">Portuguese</a>              
+              <a href="yoruba" class="hollow button">Yoruba</a>              
               <a href="hausa" class="hollow button">Hausa</a>
               <a href="igbo" class="hollow button">Igbo</a>
-              <a href="portuguese" class="hollow button">Portuguese/Egun</a>
+              <a href="egun" class="hollow button">Egun</a>
